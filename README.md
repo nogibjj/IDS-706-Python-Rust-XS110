@@ -139,7 +139,8 @@ fn main() {
 
 ### 1. successful database operations
 
-![Alt text](image/image1.png)
+![Alt text](image.png)
 
+![Alt text](image-1.png)
 ### 2. passed all tests
 ![Alt text](image/image2.png)
