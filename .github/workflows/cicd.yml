@@ -21,16 +21,36 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: install packages
         run: make install
+      
+      # Install Rust dependencies
+      - name: Install Rust dependencies
+        run: make rust-install
+
+      # Linting
       - name: lint
         run: make lint
-      - name: test
+      - name: Lint Rust code
+        run: make rust-lint
+      # Testing
+      - name: Test Python code
         run: make test
-      - name: format
+      - name: Test Rust code
+        run: make rust-test
+      # Formatting
+      - name: Format Python code
         run: make format
+      - name: Format Rust code
+        run: make rust-format
+
       - name: deploy
         run: make deploy
-      - name: Run main script
+
+      # Run main scripts
+      - name: Run main Python script
         run: python main.py
+      - name: Run main Rust script
+        run: make run-rust
+
       - name: List files
         run: |
           pwd
@@ -41,5 +61,6 @@ jobs:
         with:
           name: ml_pipeline-artifacts
           path: ${{ github.workspace }}/output
+
 
 
