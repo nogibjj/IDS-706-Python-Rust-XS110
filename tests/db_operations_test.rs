@@ -1,4 +1,3 @@
-use sqlite_database::*;
 use rusqlite::{params, Connection, Result};
 
 fn connect_to_database() -> Result<Connection> {
